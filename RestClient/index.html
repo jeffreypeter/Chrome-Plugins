@@ -1,0 +1,340 @@
+<html class="easy-sidebar-active">
+<head>
+<title>JustRest</title>
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+<link href="lib/bootstrap/css/easy-sidebar.css" rel="stylesheet">
+<link rel="stylesheet" href="lib/codemirror/css/codemirror.css">
+<link rel="stylesheet" href="lib/codemirror/css/docs.css">
+<link rel="stylesheet" href="lib/jquery-ui/jquery-ui.css">
+<link rel="stylesheet" href="lib/jquery-ui/right-navbar.css">
+<link rel="stylesheet" href="core/css/core.css">
+<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="lib/json-viewer/json-viewer.css">
+<link rel="stylesheet" href="lib/treeview/bootstrap-treeview.css">
+<script type="text/javascript" src="lib/codemirror/codemirror.js"></script>
+<script type="text/javascript"	src="lib/codemirror/plugin/simplescrollbars.js"></script>
+<script type="text/javascript" src="lib/codemirror/mode/javascript.js"></script>
+</head>
+<body style="padding-top: 60px">
+	<div class="container-fluid ">
+		<div class="container-fluid ">
+			<nav class="navbar navbar-default navbar-fixed-top navbar-wrapper">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">JustRest</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Home</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"></a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">Nav header</li>
+								<li><a href="#">Separated link</a></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="../navbar/">Default</a></li>
+						<li><a href="../navbar-static-top/">Static top</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+
+			</nav>
+		</div>
+		<nav class="sidenav sidenav-right" id="sidenav"
+			style="margin-bottom: 0">
+
+			<div id="sidebar-wrapper" class="sidebar-wrapper">
+				<div class="row">
+					<div class="form-group btn-group" role="form">
+						<button type="button" class="btn btn-primary" id="sidebar-save" title="Save">
+							<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="form-group btn-group" role="form">
+						<button type="button" class="btn btn-default" id="sidebar-collapse-tree" title="Collapse">
+							<i class="fa fa-compress" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="btn btn-default" id="sidebar-expand-tree" title="Expand">
+							<i class="fa fa-expand" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="form-group btn-group" role="form">
+						<button type="button" class="btn btn-info" data-toggle="dropdown" title="Create">
+							<i class="fa fa-plus" aria-hidden="true"></i>
+						</button>
+						<ul class="dropdown-menu">						
+							<li><a href="javascript:;" id="sidebar-create-project">Project</a></li>
+							<li><a href="javascript:;" id="sidebar-create-operation">Operation</a></li>
+						</ul>
+						<button type="button" class="btn btn-info" id="sidebar-edit" title="edit">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button>
+						
+					</div>
+					<div class="form-group btn-group" role="form">
+						<button type="button" class="btn btn-warning" id="sidebar-delete" title="Delete">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="form-group btn-group pull-right" role="form">
+						<button type="button" class="btn btn-default close-sidebar" id="sidebar-close" title="Close">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="row">
+				<div class="panel panel-default">
+					<div class="collapse panel-body" id="sidebar-collapse-create-panel">				
+						<div class="input-group" >
+							<input class="form-control" placeholder="Name" id="sidebar-collapse-name"> 
+							<input type="hidden" id="sidebar-collapse-type">
+								<div class="input-group-btn">
+									<button class="btn btn-primary" id="sidebar-collapse-create">Create</button>
+									<button class="btn btn-primary" id="sidebar-collapse-cancel">Cancel</button>
+								</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="row">
+					<div class="form-group input-group">
+						<input class="form-control" id="project-explorer-tree-pattern" placeholder="Search">
+						<div class="input-group-btn">
+							<button class="btn btn-info" id="project-explorer-tree-search" title="Search">&nbsp;<span class="glyphicon glyphicon-search"></span>&nbsp;</button>
+							<button class="btn btn-info" title="Clear" id="project-explorer-tree-clear">Clear</button>
+						</div>
+					</div>					
+				</div>
+				<div class="row">
+					<div id="project-explorer-wrapper">
+						<div id="project-explorer-tree"></div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid body">
+			<div class="row">
+				<div class="col-lg-11">
+					<div class="input-group">
+						<input class="form-control" placeholder="Test Name" id="ldata-testName">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default" id="reset-data">Reset</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-1">
+					<div class="form-group btn-group" role="form">
+						<button type="button" class="btn btn-primary btn-block" id="toggle-sidenav">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-body request">
+							<h3>Request</h3>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="input-group">
+											<input class="form-control custom-group" id="ldata-url" placeholder="URI">
+											<select class="form-control custom-group" id="ldata-type">
+												<option value="post">post</option>
+												<option value="get">get</option>
+												<option value="put">put</option>
+												<option value="delete">delete</option>
+											</select>
+											<span class="input-group-btn"><button class="btn btn-success" id="send">Send</button></span>
+											
+										
+										</div>
+									</div>
+									<!-- <div class="col-lg-2">
+									<div class="form-inline pull-right">	
+									</div>
+									</div> -->
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<a href="#requestHeader" data-toggle="collapse"
+												class="collapse-link">Headers</a>
+											<pre id="requestHeader" class="collapse"></pre>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<a href="#resize-requestBody" data-toggle="collapse"
+												class="collapse-link">Body</a>
+											<div id="resize-requestBody" class="collapse in">
+												<textarea id="ldata-requestBody" name="requestBody"></textarea>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h3>Response</h3>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<a class="collapse-link" data-toggle="collapse"
+											href="#responseHeader">Headers</a>
+										<pre id="responseHeader" class="collapse"></pre>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<a class="collapse-link" data-toggle="collapse"
+											href="#responseBody">Body</a>
+										<pre id="responseBody" class="collapse in">
+										</pre>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="modal-prompt" class="modal fade" role="dialog" style="z-index: 5000;top:15%">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title" id="modal-prompt-title"></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-12">    
+									<div class="form-group">
+										<label>Name:</label><input type="text" class="form-control" id="modal-prompt-text">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<div class="modal-footer">
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary" id="modal-prompt-ok">Ok</button>
+							<button type="button" class="btn btn-default" id="modal-prompt-close">Close</button>
+						</div>
+					</div>
+			</div>
+		</div>
+		<!-- <div class="modal fade" id="modal-save-window" role="dialog">
+			<div class="modal-dialog">
+				Modal content
+				<div class="modal-content">
+					<div class="modal-header panel-primary">
+						<button type="button" class="close modal-close"
+							data-dismiss="modal">&times;</button>
+						<h2 class="modal-title">Save Data</h2>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="form-group">
+									<input class="form-control" placeholder="Test Name"
+										id="modal-save-testName">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-inline">
+									<div class="form-group">
+										<label>Project</label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div id="project-tree"></div>
+								<div class="panel panel-default">
+
+									<div class="panel-body"></div>
+								</div>
+							</div>
+							<div class="row">
+								<form class="form-inline">
+									<div class="collapse in" id="modal-create-dropdown">
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button"
+												data-toggle="dropdown">
+												Create <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+												<li><a href="javascript:;" id="create-project">Project</a></li>
+												<li><a href="javascript:;" id="create-operation">Operation</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="collapse" id="modal-create-panel">
+										<label id="modal-create-name">Name</label> <input
+											class="form-control" placeholder="Name"
+											id="modal-collapse-name"> <input type="hidden"
+											id="modal-collapse-type">
+										<button class="btn btn-primary" id="modal-collapse-create">Create</button>
+										<button class="btn btn-primary" id="modal-collapse-cancel">Cancel</button>
+									</div>
+								</form>
+
+							</div>
+							<div class="row"></div>
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="form-group pull-right btn-group">
+							<button type="button" class="btn btn-success" id="modal-save">Save</button>
+							<button type="button" class="btn btn-default modal-close"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div> -->
+	</div>
+
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/misc/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="lib/misc/bootstrap-notify.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+	<!-- <script type="text/javascript" src="lib/jquery.ajax-cross-origin.min.js"></script> -->
+	<!-- <script type="text/javascript" src="lib/bootstrap/js/jquery.detect_swipe.js"></script> -->
+	<script type="text/javascript" src="lib/jquery-ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui/simpler-sidebar.js"></script>
+	<script type="text/javascript" src="core/js/utils.js"></script>
+	<script type="text/javascript" src="core/js/render.js"></script>
+	<script type="text/javascript" src="core/js/db-utils.js"></script>
+	<script type="text/javascript" src="core/js/core.js"></script>
+	<script type="text/javascript" src="lib/treeview/bootstrap-treeview.js"></script>
+	<script type="text/javascript" src="lib/json-viewer/json-viewer.js"></script>
+</body>
+</html>

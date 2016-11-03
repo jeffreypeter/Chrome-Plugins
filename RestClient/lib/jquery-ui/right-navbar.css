@@ -1,0 +1,66 @@
+.sidebar-wrapper {
+	background-color: white;
+}
+/* .sidenav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  background-color: white; }
+  .sidenav .sidenav-wrapper {
+    position: relative;
+    height: 100%;
+    overflow-y: auto; }
+  .sidenav header {
+    font-size: 20px;
+    font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+    text-transform: uppercase; }
+    .sidenav header a {
+      color: white; }
+      .sidenav header a:link, .sidenav header a:visited, .sidenav header a:hover, .sidenav header a:active {
+        color: white; }
+  .sidenav .sidenav-header {
+    padding: 100px 1em 1em;
+    background-color: #F44336;
+    color: white; }
+    .sidenav .sidenav-header a {
+      color: white; }
+      .sidenav .sidenav-header a:link, .sidenav .sidenav-header a:visited, .sidenav .sidenav-header a:hover, .sidenav .sidenav-header a:active {
+        color: white; }
+  .sidenav .sidenav-menu {
+    margin-top: 24px;
+    padding: 0 1em; }
+    .sidenav .sidenav-menu header {
+      margin-bottom: 4px;
+      font-weight: 300; }
+    .sidenav .sidenav-menu li, .sidenav .sidenav-menu a {
+      display: block; }
+    .sidenav .sidenav-menu li {
+      padding: 4px 0; }
+
+.sidenav-right {
+  right: -320px;
+  text-align: right; }
+
+.sidenav-left {
+  left: -320px;
+  text-align: left; }
+
+.main {
+  padding: 16px;
+  margin: 0 auto;
+  max-width: 800px; }
+
+.section {
+  margin-bottom: 2em; }
+
+.section h2, .section h3, .section h4, .section h5, .section h6 {
+  font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+  text-transform: uppercase; }
+
+#support {
+  margin-top: 32px; }
+
+#guide {
+  text-align: center;
+  font-size: 24px; } */

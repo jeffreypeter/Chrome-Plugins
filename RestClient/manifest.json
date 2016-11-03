@@ -1,0 +1,13 @@
+{
+  "manifest_version" : 2,
+  "name"    : "JustRest",
+  "short_name" : "JR",
+  "version" : "1",  
+  "description"     : "REST & HTTP API developer's pocket knife. Easy to use and configurable. HATEOAS, Hypermedia, Requests History+Repository, and  more.",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "permissions": ["<all_urls>", "cookies", "history"  ]
+}
